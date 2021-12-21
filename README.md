@@ -132,7 +132,7 @@ folder in:
 -> contains 23 input tests that will be applied to each algorithm <br>
 -> each test is called "testX.in", where X represents the test number <br>
 
-TEST STRUCTURE
+TEST STRUCTURE <br>
 -> in each test there are a series of commands <br>
 -> if the command name is PUSH a value will be read and it will be realized 
 adding that value to the queue (push operation) <br>
@@ -142,35 +142,43 @@ tail maximum (pop operation) <br>
 maximum in the queue (top operation) <br>
 
 
-tests [1-8] -> check a small number of operations <br>
+tests [1-8] <br>
+            -> check a small number of operations <br>
             -> tests the general correctness of the implementation <br>
             -> elements have values ​​between [0 - 1000] <br>
             -> are inserted in the queue between [0 - 100] elements <br>
 
-test [9] -> contains 1000 push operations <br>
+test [9] <br>
+            -> contains 1000 push operations <br>
             -> items are added in ascending order <br>
             -> items have values ​​between [0 -1000] <br>
 
-test [10] -> contains 1000 push operations <br>
+test [10] <br>
+            -> contains 1000 push operations <br>
             -> items are added in descending order <br>
             -> items have values ​​between [0 - 10000] <br>
 
-tests [11-15] -> contain between 0-10000 operations <br>
+tests [11-15]<br> 
+              -> contain between 0-10000 operations <br>
               -> element values ​​are between [0-10000] <br>
             
              
-tests [16-18] -> contain between [10000-99999] operations <br>
+tests [16-18] -<br>
+=             -> contain between [10000-99999] operations <br>
               -> element values ​​are between [0-90000] <br>
             
 
-tests [19-20] -> contain over 100,000 operations <br>
+tests [19-20] <br>
+              -> contain over 100,000 operations <br>
               -> element values ​​are between [0-100000] <br>
 
-tests [21-22] -> contain over 1,000,000 operations <br>
+tests [21-22] <br> 
+             -> contain over 1,000,000 operations <br>
              -> element values ​​are between [0-1000000] <br>
              -> tests in a complex way the implemented algorithms <br>
 
-test [23] -> contains over 10000000 operations <br>
+test [23]  <br>
+           -> contains over 10000000 operations <br>
            -> element values ​​are between [0-1000000] <br>
 
 For tests [11-23] a random number of operations is first generated
