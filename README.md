@@ -129,49 +129,49 @@ and to the end. I displayed as output time in microseconds.
 
 folder in:
 
--> contains 23 input tests that will be applied to each algorithm
--> each test is called "testX.in", where X represents the test number
+-> contains 23 input tests that will be applied to each algorithm <br>
+-> each test is called "testX.in", where X represents the test number <br>
 
 TEST STRUCTURE
--> in each test there are a series of commands
--> if the command name is PUSH a value will be read and it will be realized
-adding that value to the queue (push operation)
+-> in each test there are a series of commands <br>
+-> if the command name is PUSH a value will be read and it will be realized 
+adding that value to the queue (push operation) <br>
 -> if the command name is pop, the priority item will be deleted
-tail maximum (pop operation)
+tail maximum (pop operation) <br>
 -> if the command name is top, the priority item will be returned
-maximum in the queue (top operation)
+maximum in the queue (top operation) <br>
 
 
-tests [1-8] -> check a small number of operations
-            -> tests the general correctness of the implementation
-            -> elements have values ​​between [0 - 1000]
-            -> are inserted in the queue between [0 - 100] elements
+tests [1-8] -> check a small number of operations <br>
+            -> tests the general correctness of the implementation <br>
+            -> elements have values ​​between [0 - 1000] <br>
+            -> are inserted in the queue between [0 - 100] elements <br>
 
-test [9] -> contains 1000 push operations
-            -> items are added in ascending order
-            -> items have values ​​between [0 -1000]
+test [9] -> contains 1000 push operations <br>
+            -> items are added in ascending order <br>
+            -> items have values ​​between [0 -1000] <br>
 
-test [10] -> contains 1000 push operations
-            -> items are added in descending order
-            -> items have values ​​between [0 - 10000]
+test [10] -> contains 1000 push operations <br>
+            -> items are added in descending order <br>
+            -> items have values ​​between [0 - 10000] <br>
 
-tests [11-15] -> contain between 0-10000 operations
-              -> element values ​​are between [0-10000]
+tests [11-15] -> contain between 0-10000 operations <br>
+              -> element values ​​are between [0-10000] <br>
             
              
-tests [16-18] -> contain between [10000-99999] operations
-              -> element values ​​are between [0-90000]
+tests [16-18] -> contain between [10000-99999] operations <br>
+              -> element values ​​are between [0-90000] <br>
             
 
-tests [19-20] -> contain over 100,000 operations
-              -> element values ​​are between [0-100000]
+tests [19-20] -> contain over 100,000 operations <br>
+              -> element values ​​are between [0-100000] <br>
 
-tests [21-22] -> contain over 1,000,000 operations
-             -> element values ​​are between [0-1000000]
-             -> tests in a complex way the implemented algorithms
+tests [21-22] -> contain over 1,000,000 operations <br>
+             -> element values ​​are between [0-1000000] <br>
+             -> tests in a complex way the implemented algorithms <br>
 
-test [23] -> contains over 10000000 operations
-           -> element values ​​are between [0-1000000]
+test [23] -> contains over 10000000 operations <br>
+           -> element values ​​are between [0-1000000] <br>
 
 For tests [11-23] a random number of operations is first generated
 push and then a random number of different operations is generated.
