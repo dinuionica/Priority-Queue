@@ -1,0 +1,316 @@
+
+325CA Ion-Irinel Dinu  ACS,UPB            
+            
+                TEMA ANALIZA ALGORITMILOR -> COZI DE PRIORITATE
+                -----------------------------------------------
+
+-------------------------------------------------------------------------------
+UPDATE
+
+- am refacut testul 23, care contine acum 12438494 de operatii generate random
+- am reactualizat unele exprimari din cadrul README
+
+
+CONTINUT ARHIVA:
+
+AVL.cpp Avl.h -> Implementarea structurii de date AVL
+
+MaxHeap.cpp MaxHeap.h -> Implementarea Max Heap-ului
+
+test_avl_algo.cpp -> Fisierul necesar checker-ului pentru a verifica
+testele specifice algoritmului de AVL
+
+test_avl_algo.cpp -> Fisierul necesar checker-ului pentru a verifica
+testele specifice algoritmului de Heap
+
+checker_avl_algo.cpp checker_heap_algo.cpp -> doua checkere realizate pentru
+a testa corectitudinea testelor, output-ul acestora si pentru a determina
+durata de executiei a unui test
+
+Makefile -> Makefile-ul care contine regulile de build si de run
+
+Readme -> Fisierul care contine detalii despre arhiva si implementari
+
+checker.py -> checker-ul care verifica corectitudinea testelor
+
+generator.py -> script-ul realizat in python pentru a genera teste 
+
+folder-ul IN -> contine testele de input (testele de intrare)
+
+folder-ul OUT -> contin testele de out (testele de iesire)
+
+folder-ul TEST_OUT -> contine testele generate de checker_avl si checker_heap
+
+-------------------------------------------------------------------------------
+
+IMPLEMENTARE:
+
+Implementarea celor doi algoritmi a fost realizata folosind limbajul C++, 
+iar pentru o modularizare buna a codului am ales sa folosesc fisiere header.
+
+AVL:
+
+Functii: 
+
+- add -> adauga un nou nod in Avl
+- remove_max -> se obtine elementul maxim, iar apoi acesta este sters
+- max_element -> returneaza elementul cu valoarea maxima
+- preorder -> functia care afiseaza elemente avl-ului in preordine (debug)
+- height -> in cadrul acestei functii se calculeaza inaltimea unui nod
+- preorder_util -> functie auxiliara care afiseaza valoarea elementului curent
+iar apoi parcurge subarborele stang si drept
+- create_node -> functia creaza un nou nod cu o valoare dorita
+- rotate_right -> in cadrul acestei functii se realizeaza o rotire dreapta
+a unui nod si se actualizeaza inaltimea 
+- rotate_left -> similar functiei de rotate_right doar ca se aplica o rotire 
+catre stanga a nodului
+- get_balance -> in cadrul acestei functii se calculeaza factorul de echilibru
+a unui nod prin diferenta inaltimilor dintre subarborele stang si drept
+- fix_avl -> in cadrul acestei functii se calculeaza factorul de echilibru si
+apoi se echilibreaza arborele folosind rotatii de dreapta si de stanga
+- min_node -> determina nodul cu valoarea minima din avl
+- max_node -> determina nodul cu valoarea maxima din avl
+- add_util -> se adauga nodul conform inserarii intr-un arbore binar de cautare,
+iar apoi se actualizeaza inaltime si se realizeaza echilibrare avl-ului
+- remove_util -> in cadrul acestei functii cautam nodul cu valorea pe care
+dorim sa o stergem, apoi stergem nodul. Daca nodul nu are doi succesori, acesta
+va fi inlocuit cu unul din succesorii sai nenuli.Altfel nodul va fi inlocuit 
+cu cel mai mic nod din subarborele drept.
+
+HEAP:
+
+Am ales sa implementez max heap-ul folosind un vector STL, eliminand informatia
+legata de pointeri, print folosirea unui formule pentru a calcula parintele si
+copii unui nod pe baza index-ului din vector.
+
+Functii:
+
+- parent -> returneaza parintele nodului cu indicele i 
+- left_child_node -> returneaza copilul stang al nodului cu indicele i
+- right_child_node -> returneaza copilul drept al nodului cu indicele i 
+- size -> in cadrul acestei functii returnam size-ul actual al heap-ului
+- is_empty -> verificam daca heap-ul contine elemente, sau daca este gol
+- heapify_down -> functia recursiva care asigura rearanjarea elementelor 
+pentru a se mentine regula de max heap. Heapify down este folosit atunci când
+scoatem elementul superior din heap.
+- heapify_up -> functia recursiva care asigura rearanjarea elementelor 
+pentru a se mentine regula de max heap.Folosim functia cand inserăm un nou
+element într-un heap. Il adăugăm în partea de jos a arborelui heap și trecem 
+în sus în arbore în timp ce comparăm cu elementul părinte curent și le 
+interschimbam dacă este necesar.
+- add -> in cadrul acestei functii adaugam un elemnt nou la finalul vectorului
+apoi determinam ultima pozitie si aplicam functia de heapify_up pentru a 
+rearanja elementele.
+- max_element-> in cadrul acestei functii returnam elementul de pe prima 
+pozitie din vector (elementul cu valoarea cea mai mare)
+- remove_max -> in cadrul acestei functii accesam ultimul element din vector,
+il adaugam pe prima pozitie, stergem ultimul element si apelam functia de
+heapify_down pe primul nod pentru a rearanja elementele in ordinea dorita
+
+-------------------------------------------------------------------------------
+
+TEST_AVL_ALGO.cpp  TEST_HEAP_ALGO.cpp
+
+Aceste doua fisiere contin codul necesar checker-ului pentru a testa algoritmii.
+In cadrul acestora am creat cele doua fisiere (cel de input si cel de output).
+Apoi am citi datele de fisierul de intrare, am rulat algoritmul pe baza 
+intrarilor si am redirectionat rezultatele in fisiere de iesire.
+
+-------------------------------------------------------------------------------
+
+CHECKER_AVL_ALGO.cpp CHECKER_HEAP_ALGO.cpp
+
+Aceste doua fisiere contin codul sursa a doua checkere realizate folosind c++.
+Am create aceste doua fisiere pentru a testa corectitudinea algoritmilor
+implementati, pentru a determina timpul de executie al fiecarui test specific
+unui algoritm, respectiv pentru debug.
+
+In cadrul programelor, pentru un numar dat de teste, citesc datele de intrare 
+din folderul in, rulez algoritmul si afiseaz rezultatele in folder 
+TEST_OUT/algoritm. Apoi verific daca fisierele de output obtinute sunt identice
+cu cele din folder-ul OUT. In caz afirmativ, am afisat un mesaj corespunzator 
+"Test passed", iar in caz contrat afisez "Test failed". Pentru fiecare test am 
+determinat timpul de exectutie din punctul in care algoritm-ul incepe sa ruleze
+si pana la final. Am afisat ca output durata de executie in microsecunde.
+
+-------------------------------------------------------------------------------
+
+STRUCTURA FOLDERELOR IN / OUT / TEST_OUT
+
+folder-ul in : 
+
+-> contine 23 de teste de intrare care vor fi aplicate fiecarui algoritm 
+-> fiecare test este numit "testX.in", unde X reprezintă numărul testului
+
+STRUCTURA TEST
+-> in cadrul fiecarui teste se afla o serie de comenzi
+-> daca numele comenzii este PUSH se va citi si o valoare si se va realiza
+adaugarea valorii respective in coada (operatia push)
+-> daca numele comenzii este pop se va sterge elementul cu prioritatea 
+maxima din coada (operatia pop)
+-> daca numele comenzii este top se va returna elementul cu prioritatea 
+maxima din coada (operatia top)
+
+
+teste [1-8] -> verifica un numar redus de operatii
+            -> testeaza corectitudinea generala a implementarii
+            -> elementele au valori intre [0 - 1000]
+            -> se introduc in coada intre [0 - 100] elemente
+
+test [9]    -> contine 1000 de operatii de push
+            -> elementele sunt adaugate in ordine crescatoare 
+            -> elementele au valori intre [0 -1000]
+
+test [10]   -> contine 1000 de operatii de push
+            -> elementele sunt adaugate in ordine descrescatoare
+            -> elementele au valori intre [0 - 10000]
+
+teste [11-15] -> contin intre 0-10000 de operatii
+              -> valorile elementelor sunt cuprine intre [0-10000]
+            
+             
+teste [16-18] -> contin intre [10000-99999] de operatii
+              -> valorile elementelor sunt cuprinse intre [0-90000]
+            
+
+teste [19-20] -> contin peste 100000 de operatii
+              -> valorile elementelor sunt cuprinse intre [0-100000]
+
+teste[21-22] -> contin peste 1000000 de operatii
+             -> valorile elementelor sunt cuprinse intre [0-1000000]
+             -> testeaza intr-un mod complex algoritmii implementati
+
+test [23]  -> contine peste 10000000 de operatii 
+           -> valorile elementelor sunt cuprinse intre [0-1000000]
+
+Pentru testele [11-23] mai intai se genereaza un numar random de operatii
+de push iar apoi se genereaza un numar random de operatii diferite.
+     
+
+folder-ul out:
+-> contine trei foldere: best, p1 si p2 deoarece in cadrul testelor exista
+elemente cu aceeasi prioritate (duplicate), iar output generat este diferit
+pentru cei doi algoritmi
+-> fiecare subfolder contine 23 de teste de iesire care reprezinta testele 
+corecte ce ar trebui obtinute
+-> fiecare test este numit "testX.out", unde X reprezintă numărul testului
+
+folder-ul test_out:
+-> contine doua foldere: p1 si p2 
+-> fiecare subfolder contine 23 de teste de iesire, generate in urma rularii
+fisierelor checker_avl_algo.cpp si checker_heap_algo.cpp
+-> fiecare test este numit "testX.out", unde X reprezintă numărul testului
+
+-------------------------------------------------------------------------------
+
+CHECKER.py
+
+Checker-ul realizat pentru a testa corectitudinea algoritmilor.
+
+-------------------------------------------------------------------------------
+
+GENERATOR.py
+
+Acest fisier contine codul sursa al unui script realizat in python pentru a 
+genera o serie de teste random pe baza unor criterii folosind modulul random.
+Pentru realizare unui test sunt introduse de la tastatura o serie de date:
+
+- numarul testului pe care dorim sa il creem
+- numarul de elemente al liste de numere
+- range-ul maxim al elementelor
+- yes / no daca dorim o lista de numere sortate
+    - lista sortata - crescator
+                    - descrescator
+- upper limit pentru numarul de operatii de push
+- upper limit pentru numarul de operatii random 
+
+In cadrul generatorului, am creat o lista de cu cele trei comenzi. Apoi am 
+creat pe baza datelor introduse de la tastatura o lista de numere, care poate
+fi sortata sau nu. Am creat un fisier pentru testul dorit, si am generat random
+un numar de operatii de push pe care le-am afisat in fisier. Apoi am generat
+random un numar de operatii dintre cele trei posibile. Valorile care sunt 
+adaugate in coada sunt generate random din lista de numere creata initial.
+
+-------------------------------------------------------------------------------
+
+MAKEFILE:
+
+- build:
+        compileaza toate executabilele
+
+- run-best 
+        testarea celui mai bun algoritm
+
+- run-p1
+        testarea algoritmului de heap
+
+- run-p2
+        testarea algoritmului avl
+
+- Maxheap.o 
+        compileaza executabilul pentru heap
+        
+- test_heap.o 
+        compileaza executabilul pentru testarea algoritmului heap
+
+- AVL.o 
+        compileaza executabilul pentru avl
+
+- test_avl.o 
+        compileaza executabilul pentru testarea algoritmului avl
+
+- checker-avl-cpp:
+        compileaza si ruleaza checker-ul secundar pentru avl
+
+- checker-heap-cpp:
+        compileaza si ruleaza checker-ul secundar pentru heap
+
+- clean
+
+-------------------------------------------------------------------------------
+
+COMENZI UTILE
+
+Rulare generator:
+
+python3 generator.py
+
+Rulare checker Heap algoritm:
+
+python3 checker.py --algo p1 --task 6 --unique-tests
+
+Rulare checker AVL algoritm:
+
+python3 checker.py --algo p2 --task 6 --unique-tests
+
+Rulare checker best algoritm:
+
+python3 checker.py --algo best --task 6 --unique-tests
+-------------------------------------------------------------------------------
+
+OBSERVATII / CONCLUZII 
+
+Pe baza testelor generate, analizand in medie timpul de executie al fiecarui 
+algoritm am observat ca algoritmul de heap este superior celui de avl. Testele 
+ruleaza intr-un timp mai scurt. Si din punct de vedere al implementarii, heap-ul
+a fost mai usor de realizat comparativ cu avl. Un nou avantaj al heap-ului este 
+legat de complexitatea in care este returnat elementul maxim, aceasta fiind O(1)
+in vreme ce in cadrul avl-ului aceeasi operatie vine cu o complexitate O(log n).
+
+-------------------------------------------------------------------------------
+
+REFERINTEE :
+
+Inspiratie si Secvente de cod preluate de la : 
+
+https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+
+https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+
+https://www.softwaretestinghelp.com/avl-trees-and-heap-data-structure-in-cpp/
+
+https://ocw.cs.pub.ro/courses/sd-ca/laboratoare/lab-11
+
+https://ocw.cs.pub.ro/courses/sd-ca/laboratoare/lab-09 -> Schelete de cod
+
+-------------------------------------------------------------------------------
