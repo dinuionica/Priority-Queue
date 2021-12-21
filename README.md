@@ -223,7 +223,7 @@ added to the queue are randomly generated from the list of numbers originally cr
 
 -------------------------------------------------------------------------------
 
-## MAKEFILE:
+## Makefile:
 ```
 - build:
         compiles all executables
@@ -259,7 +259,7 @@ added to the queue are randomly generated from the list of numbers originally cr
 ```
 -------------------------------------------------------------------------------
 
-## USEFUL COMMENTS
+## Useful Commands
 ```
 Generator run:
 
@@ -277,19 +277,8 @@ Run checker best algorithm:
 
 python3 checker.py -- best --task 6 --unique-tests
 ```
--------------------------------------------------------------------------------
-OBSERVATIONS / CONCLUSIONS
 
-Based on the tests generated, analyzing the average execution time of each
-algorithm I noticed that the heap algorithm is superior to the avl. tESTS
-runs in a shorter time. And in terms of implementation, the heap
-it was easier to achieve compared to avl. A new advantage of the heap is
-related to the complexity in which the maximum element is returned, this being O (1)
-while in avl the same operation comes with a complexity O (log n).
-
--------------------------------------------------- ----------------------------
-
-REFERENCES:
+## References:
 
 Inspiration and Code Sequences taken from:
 
