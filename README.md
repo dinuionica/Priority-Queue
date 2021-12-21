@@ -275,7 +275,7 @@ python3 checker.py --algo p2 --task 6 --unique-tests
 
 Run checker best algorithm:
 
-python3 checker.py -- best --task 6 --unique-tests
+python3 checker.py --algo best --task 6 --unique-tests
 ```
 
 ## References:
