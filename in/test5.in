@@ -1,0 +1,10 @@
+push 11
+push 17
+push 20
+push 13
+top
+pop
+pop
+top
+pop
+top
